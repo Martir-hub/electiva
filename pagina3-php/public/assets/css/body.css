@@ -1,0 +1,97 @@
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Contenedores de secciones */
+.contenedor-seccion {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+section {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.seccion-por-que {
+    background-color: white;
+}
+.seccion-cursos {
+    background-color: #f4f7f6;
+}
+.seccion-testimonios {
+    background-color: white;
+}
+.seccion-contacto {
+    background-color: #eaf3f8;
+}
+
+.contenedor-titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contenedor-titulo h2 {
+    font-size: 2.5rem;
+    color: #004d99;
+    position: relative;
+    display: inline-block;
+}
+
+.contenedor-titulo h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #007bff;
+    margin: 10px auto 0;
+}
+
+.boton-llamada-accion {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.boton-llamada-accion:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.boton-curso {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 0;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-curso:hover {
+    background-color: #218838;
+}

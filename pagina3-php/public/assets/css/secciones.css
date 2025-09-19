@@ -1,0 +1,172 @@
+/* Sección de Porue elegirnos */
+
+.grid-por-que {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    /*flex-wrap: wrap;*/
+    text-align: center;
+}
+
+.item-por-que {
+    flex-basis: 30%;
+    padding: 20px;
+    background-color: #f4f7f6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.item-por-que:hover {
+    transform: translateY(-10px);
+}
+
+.item-por-que i {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.item-por-que h3 {
+    color: #004d99;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Sección de Cursos */
+.grid-cursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.tarjeta-curso {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-curso:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta-curso img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.detalles-curso {
+    padding: 20px;
+}
+
+.detalles-curso h3 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.detalles-curso h3 i {
+    margin-right: 10px;
+}
+
+.detalles-curso p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.detalles-curso ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.detalles-curso ul li {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.detalles-curso ul li i {
+    color: #28a745;
+    margin-right: 8px;
+}
+
+/* Sección de Testimonios */
+.contenedor-testimonios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta-testimonio {
+    background-color: #f4f7f6;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #007bff;
+}
+
+.tarjeta-testimonio p {
+    font-style: italic;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.info-testimonio {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.info-testimonio img {
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid #007bff;
+}
+
+.info-testimonio h4 {
+    margin: 0;
+    color: #004d99;
+}
+
+/* Sección de Contacto */
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.formulario-contacto input, .formulario-contacto textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.boton-enviar {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.boton-enviar:hover {
+    background-color: #0056b3;
+}

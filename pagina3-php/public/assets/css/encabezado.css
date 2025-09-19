@@ -1,0 +1,106 @@
+.encabezado-principal {
+    background-color: #004d99;
+    color: #fff;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contenedor-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: #a9d3ff;
+}
+
+.encabezado-principal nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.encabezado-principal nav ul li {
+    margin-left: 25px;
+}
+
+.encabezado-principal nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.encabezado-principal nav ul li a:hover {
+    color: #a9d3ff;
+}
+
+.boton-ingreso {
+    background-color: #f5f5f5;
+    color: #004d99 !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.boton-ingreso:hover {
+    background-color: #ddd;
+}
+
+/* Sección de Encabezado (Hero) */
+.contenedor-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    background-color: #eaf3f8;
+}
+
+.contenido-hero {
+    flex: 1;
+    max-width: 600px;
+    text-align: left;
+    padding-right: 50px;
+}
+
+.imagen-hero {
+    flex: 1;
+    text-align: right;
+}
+
+.imagen-hero img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.contenido-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-align: left;
+    color: #004d99;
+}
+
+.contenido-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+    text-align: left;
+}

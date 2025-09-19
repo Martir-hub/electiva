@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Estudiante</title>
+    <link rel="stylesheet" href="../public/assets/css/registro.css"> 
+</head>
+<body>
+    <div class="container">
+        <h2>Crear Cuenta</h2>
+        <form id="registroForm">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <div id="error-nombre" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+                <div id="error-apellido" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <div id="error-email" class="error"></div>
+                <div id="error-email_existente" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono </label>
+                <input type="text" id="telefono" name="telefono">
+                <div id="error-telefono" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+                <div id="error-contrasena" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="confirmar-contrasena">Confirmar Contraseña:</label>
+                <input type="password" id="confirmar-contrasena" name="confirmar-contrasena" required>
+                <div id="error-confirmar-contrasena" class="error"></div>
+            </div>
+            
+            <div id="message" class="success"></div>
+            <button type="submit">Registrarse</button>
+        </form>
+
+        <div class="link-container">
+            ¿Ya tienes una cuenta? <a href="index.php?view=login">Iniciar Sesión</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registroForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            
+            // Limpiar mensajes de error y éxito
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            document.getElementById('message').textContent = '';
+
+            // --- NUEVA VALIDACIÓN DE TELÉFONO EN JS ---
+            const telefonoValor = form.telefono.value.trim();
+            const telefonoRegex = /^\d{8}$/; // Expresión regular para exactamente 8 dígitos
+
+            if (telefonoValor && !telefonoRegex.test(telefonoValor)) {
+                document.getElementById('error-telefono').textContent = 'El teléfono debe contener exactamente 8 dígitos numéricos.';
+                return; // Detiene el envío si falla la validación JS
+            }
+            // --- FIN NUEVA VALIDACIÓN ---
+
+            const data = {
+                nombre: form.nombre.value,
+                apellido: form.apellido.value,
+                email: form.email.value,
+                telefono: telefonoValor, // Usamos el valor validado
+                contrasena: form.contrasena.value,
+                'confirmar-contrasena': form['confirmar-contrasena'].value 
+            };
+            
+            // RUTA DE FETCH CORREGIDA (Opción A: la más probable)
+            const apiUrl = '../public/api.php/auth/register'; 
+            
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                const contentType = response.headers.get('Content-Type');
+                
+                if (!response.ok && contentType && contentType.indexOf('application/json') === -1) {
+                    throw new Error('Error de ruteo/servidor. Por favor, verifique su .htaccess y la ruta del fetch.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('message').textContent = data.message + ' Redirigiendo...';
+                    setTimeout(() => { window.location.href = 'index.php?view=login'; }, 2000); 
+                } else {
+                    document.getElementById('message').textContent = data.message;
+                    if (data.errors) {
+                        for (const key in data.errors) {
+                            const errorElement = document.getElementById(`error-${key}`);
+                            if (errorElement) {
+                                errorElement.textContent = data.errors[key];
+                            }
+                        }
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                document.getElementById('message').textContent = `Fallo de conexión: ${error.message}`;
+            });
+        });
+    </script>
+</body>
+</html>
